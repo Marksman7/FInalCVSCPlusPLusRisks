@@ -1,0 +1,88 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <list>
+#include <vector>
+
+
+class GetList
+{
+private:
+
+public:
+
+    void Getlisty()
+    {
+
+        int Repo = 0;
+
+
+        //int track = 0;
+        std::ifstream doc;
+
+        doc.open("Food_Inspections.csv");
+
+        int Medioum = 0;
+        int low = 0;
+        int Hig = 0;
+
+
+        int count = 0;
+        //17
+        //219166
+        //3725822 is because (q = 17) * 219166
+        for (int i = 0; i < 219166; i++)
+        {
+            for (int a = 0; a < 17; a++)
+            {
+                std::string next = "";
+                getline(doc, next, ',');
+                //std::cout << next + " ";
+
+
+                //std::string crap = "";
+
+
+                if (next == "Risk 1 (High)")
+                {
+                    Hig = Hig + 1;
+                }
+                else if (next == "Risk 2 (Medium)")
+                {
+                    Medioum = Medioum + 1;
+                }
+                else if (next == "Risk 3 (Low)")
+                {
+                    low = low + 1;
+                }
+
+                //crap = next;
+
+            }
+
+
+        }
+
+        std::cout << "Risk 3 (Low) = ";
+        std::cout << low << std::endl;
+        std::cout << "Risk 2 (Medium) = ";
+        std::cout << Medioum << std::endl;
+        std::cout << "Risk 1 (High) = ";
+        std::cout << Hig << std::endl;
+        
+    }
+
+
+
+
+};
+
+int main()
+{
+    GetList stuff;
+    stuff.Getlisty();
+
+    std::cout <<"Hopefull these are the right numbers\n";
+
+    
+}
